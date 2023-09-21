@@ -22,10 +22,12 @@ let users = [
   },
 ]
 
+app.use(express.static('public'));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
+app.get('/views', (req, res) => {
   res.render('user', { users });
 })
 app.get('/about', (req, res) => {
